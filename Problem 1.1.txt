@@ -3,7 +3,7 @@
 Method 1: Using Reduce method of array
 
 
-
+//Code:
 const arr = ["hello", "world", "java", "hello", "java"];
 
 const freq = arr.reduce(function (initVal) {
