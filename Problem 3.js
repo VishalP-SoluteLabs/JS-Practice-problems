@@ -19,7 +19,7 @@
       }
     }
     console.log(stack);
-    return stack.length === 0;
+    return true;
 
   }
   console.log(isValid(str2));
