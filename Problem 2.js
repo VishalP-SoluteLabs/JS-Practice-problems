@@ -8,12 +8,12 @@ let people = [
 ];
 
 
-const result = people.reduce(function(initVal,item){
+const result = people.reduce(function(groupedArrayObj,item){
     
-    initVal[item.age] = initVal[item.age] || [];
-    initVal[item.age].push(item);
+    groupedArrayObj[item.age] = groupedArrayObj[item.age] || [];
+    groupedArrayObj[item.age].push(item);
     
-    return initVal;
+    return groupedArrayObj;
 },{});
 
 console.log(result)
