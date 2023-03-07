@@ -1,4 +1,4 @@
-1. Find the frequency of elements in array
+//1. Find the frequency of elements in array
 
 //Method 1: Using Reduce method of array
 
@@ -6,9 +6,9 @@
 
 let arr = ["hello", "world", "java", "hello", "java" ];
 
-let frequency=arr.reduce((initVal, item) => { 
+let frequency=arr.reduce((freqArray, item) => { 
    
-    return initVal[item] ? ++initVal[item] : initVal[item] = 1, initVal;
+    return freqArray[item] ? ++freqArray[item] : freqArray[item] = 1, freqArray;
 
 },[]);
 
@@ -22,10 +22,10 @@ console.log(frequency);
 //Method -2  Using Object
 
 
-let freq2 = {};
+let freqObj = {};
 
 arr.forEach(item => {
-    return freq2[item] ? ++freq2[item] : freq2[item] = 1, freq2
+    return freqObj[item] ? ++freqObj[item] : freqObj[item] = 1, freqObj
 });
 
-console.log(freq2)
+console.log(freqObj)
