@@ -1,22 +1,21 @@
 // 7. Find the nth largest element in a sorted array.
 
 
-let arr = [1, 6, 8, 4, 2, 9, 4];
+let arr = [1,2,4,6,6,7,7,7,9,11,12];
 
 let n = prompt('Enter the number: ')
 
-let arr1 = arr.sort();
+//let arr1 = arr.sort();
 let result = [];
-for (let i = 0; i < arr1.length; i++) {
-  if (arr1[i + 1] !== arr1[i]) {
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i + 1] !== arr[i]) {
 
-    result.push(arr1[i]);
+    result.push(arr[i]);
   }
 
 }
-let len = result.length
-if (n > len) {
+if (n > result.length) {
   console.log(`There is no ${n}th largest number`)
 } else {
-  console.log(result[len - n])
+  console.log(result[result.length - n])
 }
