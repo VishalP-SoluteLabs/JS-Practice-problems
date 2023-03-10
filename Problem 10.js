@@ -24,5 +24,5 @@ let arr = []
 for(let i in friends){
    arr.push(...friends[i].books)
 }
-
+arr.splice(0,arr.length,...new Set(arr))
 console.log(arr)
