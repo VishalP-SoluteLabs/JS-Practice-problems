@@ -11,16 +11,18 @@ Sample Output: 20
 
 
 function nonConstructibleChange(coins) {
-    coins.sort((a, b) => a - b);
-    let minChange = 0;
-    for (const coin of coins) {
-      if (coin > minChange + 1) {    //It checks for whether the coin is greater than minChange that can't be created, if it is, it will return minChange that can't be created
-        return minChange + 1;
-      }
-      minChange += coin;
+  coins.sort((a, b) => a - b); 
+  let minChange = 0;
+  for (const coin of coins) {
+    if (coin > minChange + 1) {
+       // If the current coin value is greater than minChange + 1,
+      // we cannot create the amount minChange + 1, break the loop to return minChange + 1
+      break;
     }
-    return minChange + 1;
+    minChange += coin;
   }
+  return minChange + 1;
+}
   //1 1 2 3 5 7 22
   
   console.log(nonConstructibleChange([ 5, 7, 1, 1, 2, 3, 20 ]));
