@@ -10,15 +10,16 @@ Sample Output: true
 
 
 function isValidSubseq(arr, seq) {
-  let arrIndex = 0;
   let seqIndex = 0;
-  while (arrIndex < arr.length && seqIndex < seq.length) {            //We can also use for..of and simple for-loop
-    if (arr[arrIndex] === seq[seqIndex]) {
+  for (const element of arr) {
+    if (element === seq[seqIndex]) {
       seqIndex++;
     }
-    arrIndex++;
+    if (seqIndex === seq.length) {
+      return true;
+    }
   }
-  return seqIndex === seq.length;
+  return false;
 }
   
-  console.log(isValidSubseq([ 5, 1, 22, 25, 6, -1, 8, 10 ],[ 1, 25, -1,8, 10 ]))
+console.log(isValidSubseq([ 5, 1, 22, 25, 6, -1, 8, 10 ],[ 1, 25, -1,8, 10 ]))
