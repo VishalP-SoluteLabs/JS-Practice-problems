@@ -17,7 +17,7 @@ function twoNumberSum(array, targetSum) {
     const diff = targetSum - num;
     if (array.has(diff)) {
         let a = arr.flat(2)      //to convert array from [[a,b], [c,d]] to [a,b,c,d]
-        if(!(a.includes(diff)&&a.includes(num))){   //to check if the pair already exists or not
+        if(!(a.includes(diff)&&a.includes(num))  && diff !== num){ //to check if the pair already exists or not and also a number dividing the targetsum doesn't get repeated 
             arr.push([diff, num]);
         }     
     }
