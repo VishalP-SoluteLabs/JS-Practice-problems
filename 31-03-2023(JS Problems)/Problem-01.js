@@ -11,17 +11,15 @@ Sample Output: [ -1, 11 ]
 
 
 function twoNumberSum(array, targetSum) {
-  array = new Set(array)    // to avoid repeated elements 
-  let arr = [];
+  let pairArr = [];
+  let visited_elems = []
   for (let num of array) {
     const diff = targetSum - num;
-    if (array.has(diff)) {
-        let a = arr.flat(2)      //to convert array from [[a,b], [c,d]] to [a,b,c,d]
-        if(!(a.includes(diff)&&a.includes(num))  && diff !== num){ //to check if the pair already exists or not and also a number dividing the targetsum doesn't get repeated 
-            arr.push([diff, num]);
-        }     
+    if (visited_elems.includes(diff)) {
+            pairArr.push([diff, num]);
+        }    
+        visited_elems.push(num);     // for pushing visited elements
     }
-  }
-  return arr;
+  return pairArr;   //returning the final sum pair array
 }
-console.log(twoNumberSum( [ 3, 5, 2, -4, 8, 11, 1, -1, 6 ], 10))
+console.log(twoNumberSum( [ 3, 5, 2, 4, 8, 11, 1, -1, 6 ], 10))
