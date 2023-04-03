@@ -25,38 +25,32 @@ Sample output: “Python”
 */
 
 
-
 function tournamentWinner(competitions, results) {
-  const points = {};
-  let resIndex = 0;
-  for (let i = 0; i < competitions.length - 1; i++) {
-    const homeTeam = competitions[i]
-    const awayTeam = competitions[i + 1];
-    if (homeTeam === awayTeam) {
-      continue;
-    } else {
-      let winTeam = '';
-      if (results[resIndex] === 1) {
-        winTeam = homeTeam;
-      } else {
-        winTeam = awayTeam;
+    const points = {};
+    let resIndex = 0;
+    for (let i = 0; i < competitions.length; i++) {
+    const [homeTeam, awayTeam] = competitions[i];
+     
+        let winTeam = '';
+        if (results[resIndex] === 1) {
+          winTeam = homeTeam;
+        } else {
+          winTeam = awayTeam;
+        }
+        // console.log(points[winTeam])
+        points[winTeam] = (points[winTeam] || null) + 3; // initially it will be null(or 0 ) so we need to check in or statement also
+        resIndex++; //increase result array's index
+      }  
+  
+    let max = 0;
+    let maxKey = "";
+  
+    for (let i in points) {
+      if (points[i] > max) {
+        max = points[i];
+        maxKey = i
       }
-      console.log(points[winTeam])
-      points[winTeam] = (points[winTeam] || null) + 3; // initially it will be null(or 0 ) so we need to check in or statement also
-      resIndex++; //increase result array's index
     }
+    return maxKey;  
   }
-
-  let max = 0;
-  let maxKey = "";
-
-  for (let i in points) {
-    if (points[i] > max) {
-      max = points[i];
-      maxKey = i
-    }
-  }
-  return maxKey;
-
-}
-console.log('Winner of the tournament is:', tournamentWinner(["HTML", "C#", "Python", "Python", "HTML"], [0, 0, 1]), 'team!')
+  console.log('Winner of the tournament is:', tournamentWinner( [["HTML", "C#"], ["C#", "Python"], ["Python", "HTML"]], [0, 0, 1]) + ' team!');
