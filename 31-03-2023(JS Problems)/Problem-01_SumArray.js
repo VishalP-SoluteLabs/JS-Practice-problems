@@ -10,16 +10,12 @@ Sample Output: [ -1, 11 ]
 
 
 
-function twoNumberSum(array, targetSum) {
-  let pairArr = [];
-  let visited_elems = []
-  for (let num of array) {
-    const diff = targetSum - num;
-    if (visited_elems.includes(diff)) {
-            pairArr.push([diff, num]);
-        }    
-        visited_elems.push(num);     // for pushing visited elements
+function twoNumberSum(array, targetSum) {  
+    for (let num of array) {
+      const diff = targetSum - num;
+      if (array.includes(diff) && diff !== num) {
+          return [diff, num]       
+      }
     }
-  return pairArr;   //returning the final sum pair array
-}
+  }
 console.log(twoNumberSum( [ 3, 5, 2, 4, 8, 11, 1, -1, 6 ], 10))
